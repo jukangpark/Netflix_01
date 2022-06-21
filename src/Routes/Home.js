@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { API_KEY, BASE_PATH } from "../key";
 
 class Home extends Component {
   //   constructor(props) {
@@ -15,7 +16,7 @@ class Home extends Component {
 
   componentDidMount() {
     fetch(
-      `${process.env.BASE_PATH}/movie/now_playing?api_key=${process.env.API_KEY}&language=en-US&page=1&region=kr`
+      `${BASE_PATH}/movie/now_playing?api_key=${API_KEY}&language=en-US&page=1&region=kr`
     )
       .then((data) => data.json())
       .then((data) => this.setState({ data: data.results })); // 왜 여기에서 setState 가 동작하지 않는걸까융?
